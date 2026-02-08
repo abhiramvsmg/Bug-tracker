@@ -1,0 +1,6 @@
+Found 5 users:
+ - test_user_final_v3@example.com (ID: 2, Role: UserRole.MEMBER)
+ - nagesh@gmail.com (ID: 1, Role: UserRole.MEMBER)
+ - abhiram@gmail.com (ID: 3, Role: UserRole.MEMBER)
+ - test_reg_77@example.com (ID: 4, Role: UserRole.MEMBER)
+ - test_reg_505b@example.com (ID: 5, Role: UserRole.MEMBER)

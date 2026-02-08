@@ -1,0 +1,8 @@
+Checking login for abhiram@gmail.com
+Session opened
+Found user: abhiram@gmail.com
+Hashed password in DB: $2b$12$ZGiaQU8PoVQhJ4.L5K/PNu3A0Kiw7.6FxOYMYLLuhLkUJKrsD3aKe
+Password verification result: True
+Generating new hash for verification...
+New hash: $2b$12$IxV9roE6VzxL6hpFWcn8PeOfzAp/1rlldSCW57vR5LUEUyPm9c0M.
+Is brand new hash valid? True
