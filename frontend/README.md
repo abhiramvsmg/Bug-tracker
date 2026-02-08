@@ -1,16 +1,141 @@
-# React + Vite
+Tech Stack
+Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React.js
 
-Currently, two official plugins are available:
+Tailwind CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Axios
 
-## React Compiler
+React Router
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Backend
 
-## Expanding the ESLint configuration
+FastAPI (Python)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+SQLAlchemy
+
+PostgreSQL
+
+JWT Authentication
+
+Pydantic
+
+Tools
+
+Docker & Docker Compose
+
+Swagger UI for API testing
+
+Features
+
+User registration and login with JWT authentication
+
+Project creation and management
+
+Ticket creation (bugs, tasks, features)
+
+Assign tickets to users
+
+Ticket status tracking
+
+RESTful API design
+
+Dockerized full-stack setup
+
+Project Structure
+bug-tracker/
+│
+├── backend/        # FastAPI backend
+├── frontend/       # React frontend
+├── docker-compose.yml
+└── README.md
+
+How to Run the Project
+Prerequisites
+
+Docker
+
+Docker Compose
+
+Steps
+
+Clone the repository:
+
+git clone https://github.com/abhiramvsmg/Bug-tracker.git
+cd Bug-tracker
+
+
+Start all services:
+
+docker-compose up --build
+
+
+Access the application:
+
+Frontend: http://localhost:5173
+
+Backend API: http://localhost:8000
+
+Swagger Docs: http://localhost:8000/docs
+
+API Endpoints (Sample)
+
+POST /auth/register – Register user
+
+POST /auth/login – Login user
+
+GET /projects – List projects
+
+POST /tickets – Create ticket
+
+Current Status
+
+Prototype stage with:
+
+Authentication
+
+Project APIs
+
+Ticket APIs
+
+Frontend integration
+
+Dockerized environment
+
+Future Improvements
+
+Kanban board
+
+Comments on tickets
+
+Role-based access
+
+File uploads
+
+Cloud deployment
+
+Author
+
+Abhiram V
+Computer Science Engineering Student
+2022–2026
+
+What to do now (2 steps)
+Step 1: Replace README
+
+In VS Code:
+
+Open README.md
+
+Replace everything with the content above
+
+Save
+
+Step 2: Push updated README to GitHub
+
+In terminal:
+
+git add README.md
+git commit -m "Updated professional README"
+git push
