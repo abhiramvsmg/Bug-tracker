@@ -74,6 +74,17 @@ cd Bug-tracker
 - `POST /tickets` – Create ticket
 
 ---
+## 📸 Screenshots
+
+### 🔐 Login Page
+![Login Page](screenshots/login.png)
+
+### 📊 Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### 🐞 Bug Creation
+![Create Bug](screenshots/create_bug.png)
+
 
 ## Current Status
 Prototype stage with:
