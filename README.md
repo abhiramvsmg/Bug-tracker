@@ -1,179 +1,149 @@
-# Bug Tracker System
+# Bug Tracker – Issue Tracking System
 
-A modern, full-stack bug tracking application built with FastAPI and React. Track bugs, manage projects, and collaborate with your team efficiently.
+A full-stack Bug Tracker application inspired by tools like **Jira, Linear, and ClickUp**.  
+This system allows teams to manage projects, track bugs, assign tasks, and monitor progress.
 
-## 🚀 Features
+---
 
-- **User Authentication**: Secure JWT-based authentication with login and signup
-- **Project Management**: Create and manage multiple projects
-- **Bug/Ticket Tracking**: Create, update, and track bugs with detailed information
-- **Kanban Board**: Visualize ticket workflow with drag-and-drop functionality
-- **Team Collaboration**: Invite team members and assign tickets
-- **Real-time Updates**: Live updates using modern web technologies
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+## Tech Stack
+
+### Frontend
+- React.js
+- Tailwind CSS
+- Axios
+- React Router
+
+### Backend
+- FastAPI (Python)
+- SQLAlchemy
+- PostgreSQL
+- JWT Authentication
+- Pydantic
+
+### Tools
+- Docker & Docker Compose
+- Swagger UI for API testing
+
+---
+
+## Features
+- User registration and login with JWT authentication
+- Workspace and project management
+- Ticket creation (bugs, tasks, features)
+- Kanban board with drag-and-drop
+- Team collaboration and invites
+- Priority and type filtering
+- Ticket status tracking
+- RESTful API design
+- Dockerized full-stack setup
+
+---
 
 ## 📸 Screenshots
 
 ### Login Page
-![Login Page](screenshots/login-page.png)
+![Login](screenshots/login.png)
 
-### Signup Page
-![Signup Page](screenshots/signup-page.png)
+### Workspace Overview
+![Workspace Overview](screenshots/workspace_overview.png)
 
-### Dashboard
-![Dashboard](screenshots/dashboard.png)
+### Projects Dashboard
+![Projects](screenshots/projects.png)
 
-### Projects List
-![Projects List](screenshots/projects-list.png)
+### Kanban Board - Backlog
+![Kanban Backlog](screenshots/kanban_backlog.png)
 
-### Create Project
-![Create Project](screenshots/create-project.png)
+### Kanban Board - In Progress
+![Kanban In Progress](screenshots/kanban_inprogress.png)
 
-### Ticket Details
-![Ticket Details](screenshots/ticket-details.png)
+### Kanban Board - Done
+![Kanban Done](screenshots/kanban_done.png)
 
-### Kanban Board
-![Kanban Board](screenshots/kanban-board.png)
+### Team Invitations
+![Invite Team](screenshots/invite_team.png)
 
-## 🛠️ Tech Stack
+### Priority Filter
+![Priority Filter](screenshots/priority_filter.png)
 
-### Backend
-- **FastAPI**: Modern Python web framework
-- **PostgreSQL**: Relational database
-- **SQLAlchemy**: ORM for database operations
-- **Alembic**: Database migrations
-- **JWT**: Secure authentication
-- **Uvicorn**: ASGI server
+### Type Filter
+![Type Filter](screenshots/type_filter.png)
 
-### Frontend
-- **React**: UI library
-- **Vite**: Build tool and dev server
-- **React Router**: Client-side routing
-- **Axios**: HTTP client
-- **Tailwind CSS**: Utility-first CSS framework
+### Settings
+![Settings](screenshots/settings.png)
 
-## 📋 Prerequisites
+---
 
-- Python 3.8+
-- Node.js 16+
-- PostgreSQL 12+
+## How to Run the Project
 
-## 🔧 Installation & Setup
+### Prerequisites
+- Docker & Docker Compose
+- OR Python 3.10+ and Node.js 18+
 
-### 1. Clone the Repository
+### Option 1: Using Docker
 
 ```bash
-git clone <your-repo-url>
-cd "BugTracker System App"
+# Clone the repository
+git clone https://github.com/abhiramvsmg/Bug-tracker.git
+cd Bug-tracker
+
+# Start all services
+docker-compose up --build
 ```
 
-### 2. Backend Setup
+### Option 2: Manual Setup
 
+**Backend:**
 ```bash
 cd backend
-
-# Create virtual environment
 python -m venv venv
-
-# Activate virtual environment
 .\venv\Scripts\activate  # Windows
-# source venv/bin/activate  # Linux/Mac
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Run database migrations
-alembic upgrade head
-
-# Start the backend server
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-The backend will run on `http://127.0.0.1:8000`
-
-### 3. Frontend Setup
-
+**Frontend:**
 ```bash
 cd frontend
-
-# Install dependencies
 npm install
-
-# Start the development server
 npm run dev
 ```
 
-The frontend will run on `http://localhost:5173`
+---
 
-## 🎯 Usage
+## API Documentation
 
-1. **Start the Backend**: Navigate to the backend directory and run `uvicorn app.main:app --reload`
-2. **Start the Frontend**: Navigate to the frontend directory and run `npm run dev`
-3. **Open Browser**: Visit `http://localhost:5173`
-4. **Create Account**: Sign up with your email and password
-5. **Start Tracking**: Create projects and start tracking bugs!
+Once the backend is running, visit:
+- **Swagger UI**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
 
-## 📁 Project Structure
+---
+
+## Project Structure
 
 ```
-BugTracker System App/
-├── backend/
+Bug-tracker/
+├── backend/          # FastAPI backend
 │   ├── app/
-│   │   ├── auth/          # Authentication routes and logic
-│   │   ├── projects/      # Project management
-│   │   ├── tickets/       # Ticket/bug tracking
-│   │   ├── database.py    # Database configuration
-│   │   ├── models.py      # SQLAlchemy models
-│   │   ├── schemas.py     # Pydantic schemas
-│   │   └── main.py        # FastAPI application
-│   ├── migrations/        # Alembic migrations
-│   ├── venv/             # Virtual environment
-│   └── requirements.txt   # Python dependencies
-│
-├── frontend/
+│   │   ├── auth/     # Authentication routes
+│   │   ├── projects/ # Project management
+│   │   ├── tickets/  # Ticket management
+│   │   └── main.py   # App entry point
+├── frontend/         # React frontend
 │   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── pages/         # Page components
-│   │   ├── services/      # API services
-│   │   └── App.jsx        # Main app component
-│   ├── public/           # Static assets
-│   └── package.json      # Node dependencies
-│
-└── screenshots/          # Application screenshots
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── App.tsx
+└── docker-compose.yml
 ```
 
-## 🔐 Environment Variables
+---
 
-### Backend (.env)
-```env
-DATABASE_URL=postgresql://user:password@localhost/bugtracker
-SECRET_KEY=your-secret-key-here
-```
+## Contributing
 
-### Frontend (.env)
-```env
-VITE_API_URL=http://127.0.0.1:8000
-```
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 🤝 Contributing
+---
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## License
 
-## 📝 License
-
-This project is licensed under the MIT License.
-
-## 👤 Author
-
-Your Name - [Your GitHub Profile](https://github.com/yourusername)
-
-## 🙏 Acknowledgments
-
-- FastAPI documentation
-- React documentation
-- Tailwind CSS team
-- PostgreSQL community
+This project is open source and available under the MIT License
