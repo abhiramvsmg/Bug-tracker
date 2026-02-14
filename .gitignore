@@ -43,6 +43,21 @@ logs/
 *.sqlite
 *.sqlite3
 
-# Test files (optional - uncomment if you want to exclude)
-# test_*.py
-# *_test.py
+# Test files and debug scripts
+test_*.py
+*_test.py
+check_*.py
+debug_*.py
+simple_test.py
+list_users.py
+fix_*.py
+reset_*.py
+init_user.py
+create_test_user.py
+*.txt
+!requirements.txt
+!README.md
+
+# Deployment
+.vercel
+.railway

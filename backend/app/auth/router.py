@@ -64,25 +64,43 @@ async def register(user_in: UserCreate, db: AsyncSession = Depends(get_db)):
 
 @router.post("/login", response_model=Token)
 async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(User).where(User.email == form_data.username))
-    user = result.scalars().first()
-    
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail=f"User {form_data.username} not found",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
+    try:
+        print(f"[LOGIN] Attempting login for: {form_data.username}")
+        result = await db.execute(select(User).where(User.email == form_data.username))
+        user = result.scalars().first()
         
-    if not verify_password(form_data.password, user.hashed_password):
+        if not user:
+            print(f"[LOGIN] User not found: {form_data.username}")
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail=f"User {form_data.username} not found",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+            
+        print(f"[LOGIN] User found: {user.email}, verifying password...")
+        if not verify_password(form_data.password, user.hashed_password):
+            print(f"[LOGIN] Password verification failed for: {user.email}")
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Incorrect password",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+        
+        print(f"[LOGIN] Password verified, creating token...")
+        access_token = create_access_token(data={"sub": user.email})
+        print(f"[LOGIN] Login successful for: {user.email}")
+        return {"access_token": access_token, "token_type": "bearer"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"[LOGIN ERROR] Unexpected error: {type(e).__name__}: {str(e)}")
+        import traceback
+        traceback.print_exc()
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect password",
-            headers={"WWW-Authenticate": "Bearer"},
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Login failed: {str(e)}"
         )
-    
-    access_token = create_access_token(data={"sub": user.email})
-    return {"access_token": access_token, "token_type": "bearer"}
+
 
 @router.get("/me", response_model=UserResponse)
 async def read_users_me(current_user: User = Depends(get_current_user)):
