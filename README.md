@@ -16,6 +16,13 @@
 
 ---
 
+##  Live Demo
+- **Frontend (Web App)**: [https://bug-tracker-omega-jade.vercel.app](https://bug-tracker-omega-jade.vercel.app)
+- **Backend (API Docs)**: [https://bug-tracker-iv8v.onrender.com/docs](https://bug-tracker-iv8v.onrender.com/docs)
+- **Database**: Managed on Supabase (PostgreSQL)
+
+---
+
 ## 📋 Overview
 
 Bug Tracker is a production-ready, full-stack issue tracking system designed for modern development teams. Built with FastAPI and React, it provides a seamless experience for managing projects, tracking bugs, and collaborating with your team.
