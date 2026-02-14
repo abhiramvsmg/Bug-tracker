@@ -7,6 +7,7 @@
 ![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=for-the-badge&logo=react)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
 **A full-stack bug tracking and project management system inspired by Jira, Linear, and ClickUp**
 
@@ -389,7 +390,7 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
-## 📝 License
+## ⚖️ License
 
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
