@@ -3,9 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 import os
 
-from .auth.router import router as auth_router
-from .projects.router import router as projects_router
-from .tickets.router import router as tickets_router
+from app.auth.router import router as auth_router
+from app.projects.router import router as projects_router
+from app.tickets.router import router as tickets_router
 
 app = FastAPI(title="Bug Tracker API")
 
